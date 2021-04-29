@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>refresh</title>
+</head>
+<body>
+    <h1>refresh the page</h1>
+    <div id="divs">
+        <button type="button" id="1">button 1</button>
+
+        <button type="button" id="1">button 1</button>
+    
+        <button type="button" id="1">button 1</button>
+    
+        <button type="button" id="4">button 1</button>
+    
+        <button type="button" id="5">button 1</button>
+    
+        <button type="button" id="6">button 1</button>
+    
+        <button type="button" id="7">button 1</button>
+    
+        <button type="button" id="8">button 1</button>
+    
+        <button type="button" id="9">button 1</button>
+    
+        <button type="button" id="10">button 1</button>
+    </div>
+
+    <button type="button">external button</button>
+
+</body>
+<script src="../JS/jquery.js"></script>
+<script>
+    $(document).ready(function(){
+        let buttons = $("#divs").children()
+        buttons.on("click",(e)=>{
+            console.log(e.target.id)
+        })
+    })
+</script>
+</html>

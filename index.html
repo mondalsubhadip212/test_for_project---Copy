@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> 
+    <meta charset="UTF-8" />
+
+    <!--    bootstrap css cdn-->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <!--    custom css-->
+    <link rel="stylesheet" href="CSS/index.css" />
+    <link rel="stylesheet" href="./CSS/loader.css" />
+    <link rel="stylesheet" href="CSS/gradiantAnimation.css" />
+
+    <!-- fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,400,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <title>crabsniltest</title>
+  </head>
+  <body id="body" style="overflow-x: hidden">
+    <!-- this include all the interface related to navbar - signup,login,user logout button-->
+    <div class="container" style="margin-top: 10px; margin-bottom: 30px">
+      <div class="row">
+        <!--        search bar and search button column-->
+        <!-- <div class="col col-6">
+            <div class="row">
+                <input class="col col-10" type="text" placeholder="Search" id="search_box">
+                <button class="btn btn-primary col col-1" id="search_button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                         class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>
+                </button>
+            </div>
+        </div> -->
+        <!--others button ,user and setting in navbar-->
+        <div class="col col-6">
+          <div class="row justify-content-end">
+            <!--                sign up button-->
+            <button
+              class="btn btn-primary col-1"
+              id="sign_up_button"
+              type="button"
+              data-toggle="modal"
+              data-target="#signup_modal"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-box-arrow-in-right"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"
+                />
+                <path
+                  fill-rule="evenodd"
+                  d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"
+                />
+              </svg>
+            </button>
+            <!--                modal for sign up-->
+            <div
+              class="modal fade"
+              id="signup_modal"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header" id="signup_modal_header">
+                    <div class="row mx-auto">
+                      <h6 class="display-4" id="signup_modal_label">Sign Up</h6>
+                    </div>
+                  </div>
+                  <div class="modal-body mx-auto" id="sign_up_alert">
+                    <!--                                    alert for modal-->
+                  </div>
+                  <div class="modal-body">
+                    <form id="sign_up_form">
+                      <div class="form-group">
+                        <input
+                          type="email"
+                          class="form-control"
+                          id="signup_email"
+                          aria-describedby="emailHelp"
+                          placeholder="Email"
+                          style="margin-bottom: 10px"
+                        />
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="signup_username"
+                          aria-describedby="emailHelp"
+                          placeholder="Username"
+                          style="margin-bottom: 10px"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="signup_password1"
+                          placeholder="Password"
+                          style="margin-bottom: 10px"
+                        />
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="signup_password2"
+                          placeholder="Confirm Password"
+                        />
+                      </div>
+                      <div class="form-check">
+                        <input
+                          type="checkbox"
+                          class="form-check-input"
+                          id="sign_up_check"
+                        />
+                        <label class="form-check-label" for="sign_up_check"
+                          >Confirm</label
+                        >
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer mx-auto">
+                    <button
+                      type="submit"
+                      class="btn btn-secondary"
+                      data-dismiss="modal"
+                      id="sign_up_close"
+                    >
+                      Close
+                    </button>
+                    <button
+                      type="submit"
+                      class="btn btn-primary"
+                      id="sign_up_submit"
+                    >
+                      Join
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--                login button-->
+            <button
+              class="btn btn-success col-1"
+              id="login_button"
+              type="button"
+              data-toggle="modal"
+              data-target="#login_modal"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-arrow-bar-up"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5zm-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5z"
+                />
+              </svg>
+            </button>
+            <!--                modal for login -->
+            <div
+              class="modal fade"
+              id="login_modal"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header" id="login_modal_header">
+                    <div class="row mx-auto">
+                      <h6 class="display-4" id="login_modal_label">Login :)</h6>
+                    </div>
+                  </div>
+                  <div class="modal-body mx-auto" id="login_alert">
+                    <!--                                    alert for modal-->
+                  </div>
+                  <div class="modal-body">
+                    <form id="login_form">
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="login_username"
+                          aria-describedby="emailHelp"
+                          placeholder="Username"
+                          style="margin-bottom: 10px"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="login_password"
+                          placeholder="Password"
+                          style="margin-bottom: 10px"
+                        />
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer mx-auto">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-dismiss="modal"
+                      id="login_close"
+                    >
+                      Close
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      id="login_submit"
+                    >
+                      Login
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--                logout button-->
+            <button class="btn btn-danger col-1" id="logout_button">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-box-arrow-left"
+                viewBox="0 0 16 16"
+                data-toggle="hide"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"
+                />
+                <path
+                  fill-rule="evenodd"
+                  d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"
+                />
+              </svg>
+            </button>
+            <!--                modal for user -->
+            <div
+              class="modal fade"
+              id="user_modal"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header" id="user_modal_header">
+                    <div class="row mx-auto">
+                      <h6 class="display-4" id="user_modal_label">
+                        Account :)
+                      </h6>
+                    </div>
+                  </div>
+                  <div class="modal-body">
+                    <p class="h3 text-center" id="user_username"></p>
+                    <p class="h3 text-center" id="user_email"></p>
+                    <p class="h3 text-center" id="user_userid"></p>
+                  </div>
+                  <div class="modal-footer mx-auto">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-dismiss="modal"
+                      id="user_close"
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--                user button-->
+            <button
+              class="btn btn-warning col-1"
+              id="user_button"
+              data-target="#user_modal"
+              data-toggle="modal"
+              type="button"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-person-circle"
+                viewBox="0 0 16 16"
+              >
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                <path
+                  fill-rule="evenodd"
+                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+                />
+              </svg>
+            </button>
+            <!--                settings button-->
+            <!-- <div class="dropdown col-1" id="setting_button">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-sliders"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3h9.05zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8h2.05zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1h9.05z"
+                  />
+                </svg>
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <button
+                  class="btn dropdown-item btn-outline-secondary active"
+                  id="night_mode_day_button"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-brightness-high"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
+                    />
+                  </svg>
+                </button>
+                <a class="dropdown-item" href="#">Some Settings</a>
+                <a class="dropdown-item" href="#">Some Settings</a>
+                <a class="dropdown-item" href="#">Some Settings</a>
+                <a class="dropdown-item" href="#">Some Settings</a>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- this include all the interface related to chat and other chat related stuffs -->
+    <div
+      class="row"
+      style="justify-content: center; margin-bottom: 50px"
+      id="chat"
+    ></div>
+
+    <!-- this include all the interface related to footer things and stuffs -->
+    <div class="row" style="background-color: black">
+    </div>
+
+    <!-- some extra stuffs for other use -->
+    <!-- loader for webpage -->
+    <div id="overlay">
+      <div class="lds-roller" id="loader">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
+    <!-- alert modal for user -->
+    <div
+      class="modal fade"
+      id="alert_modal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog modal-dialog-centered"
+        role="document"
+        style="width: 40vw"
+      >
+        <div class="modal-content">
+          <div class="modal-header" id="alert_modal_header">
+            <div class="row mx-auto">
+              <p class="display-4" id="alert_modal_title"></p>
+            </div>
+          </div>
+          <div class="modal-body mx-auto" id="alert_modal_body">
+            <div class="row mx-auto">
+              <h6 id="alert_modal_body_content_1"></h6>
+            </div>
+          </div>
+          <div class="modal-footer mx-auto">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <!--    jquery cdn-->
+  <script src="./JS/jquery.js"></script>
+
+  <!-- bootstrap javascript cdn-->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"
+  ></script>
+
+  <!--custom javascript-->
+  <script src="JS/index.js"></script>
+  <!--<script src="JS/serializetojson.js"></script>-->
+
+  <!-- before login button hide button - signup, login etc -->
+  <script>
+    $("#logout_button").hide();
+    $("#user_button").hide();
+    $("#setting_button").hide();
+    $("#overlay").css("display", "none");
+  </script>
+</html>
